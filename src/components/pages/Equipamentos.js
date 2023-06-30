@@ -38,28 +38,28 @@ const Equipamentos = () => {
     const getEquips = async () => {
         if (onFilter != 'null') {
             try {
-                const res = await axios.get(`http://15.228.57.78:443/equipamentos/${onFilter[0].nome}.${onFilter[0].setor}.${onFilter[0].marca}.${onFilter[0].modelo}.${onFilter[0].patrimonio}.${onFilter[0].serie}.9999.0`);
+                const res = await axios.get(`http://15.228.57.78:8800/equipamentos/${onFilter[0].nome}.${onFilter[0].setor}.${onFilter[0].marca}.${onFilter[0].modelo}.${onFilter[0].patrimonio}.${onFilter[0].serie}.9999.0`);
                 setEquipsQuant(res.data.sort((a, b) => (a.nome > b.nome ? 1 : -1)));
             } catch (error) {
                 console.log(error);
             }
 
             try {
-                const res = await axios.get(`http://15.228.57.78:443/equipamentos/${onFilter[0].nome}.${onFilter[0].setor}.${onFilter[0].marca}.${onFilter[0].modelo}.${onFilter[0].patrimonio}.${onFilter[0].serie}.${LIMIT}.${offset}`);
+                const res = await axios.get(`http://15.228.57.78:8800/equipamentos/${onFilter[0].nome}.${onFilter[0].setor}.${onFilter[0].marca}.${onFilter[0].modelo}.${onFilter[0].patrimonio}.${onFilter[0].serie}.${LIMIT}.${offset}`);
                 setEquips(res.data);
             } catch (error) {
                 console.log(error);
             }
         } else {
             try {
-                const res = await axios.get(`http://15.228.57.78:443/equipamento`);
+                const res = await axios.get(`http://15.228.57.78:8800/equipamento`);
                 setEquipsQuant(res.data.sort((a, b) => (a.nome > b.nome ? 1 : -1)));
             } catch (error) {
                 console.log(error);
             }
 
             try {
-                const res = await axios.get(`http://15.228.57.78:443/${LIMIT}/${offset}`);
+                const res = await axios.get(`http://15.228.57.78:8800/${LIMIT}/${offset}`);
                 setEquips(res.data);
             } catch (error) {
                 console.log(error);
