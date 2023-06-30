@@ -1,0 +1,17 @@
+.links{
+    color:rgb(209, 225, 240);
+    text-decoration: none;
+}
+
+.links:hover {
+    color: #FFFF !important;
+}
+
+.bt-login{
+    background-color: #0b5ed7;
+}
+
+.user-info {
+    margin-right: 5px;
+    color: #FFFF;
+}
