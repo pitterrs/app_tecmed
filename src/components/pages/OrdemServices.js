@@ -53,7 +53,7 @@ function OrdemServices() {
             }
         } else {
             try {
-                const res = await axios.get(`hhttps://api-tecmed.vercel.app/ordens`);
+                const res = await axios.get(`https://api-tecmed.vercel.app/ordens`);
                 setOrdensQuant(res.data);
             } catch (error) {
                 console.log(error);

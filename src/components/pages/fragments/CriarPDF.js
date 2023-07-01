@@ -496,23 +496,23 @@ const criarPDF = (ordens) => {
                         { text: `${ordens.quantidade2}`, colSpan: 1, fontSize: 9, alignment: 'center' },
                         { text: `${ordens.unidade_un2}`, colSpan: 1, fontSize: 9, alignment: 'center' },
                         { text: `${ordens.valor_unit2.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}`, colSpan: 1, fontSize: 9, alignment: 'center' },
-                        { text: `${ordens.valor_total2.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}`, colSpan: 1, fontSize: 9, alignment: 'center' }
+                        { text: `${ordens.valor_total2 ? ordens.valor_total2.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' }) : ''}`, colSpan: 1, fontSize: 9, alignment: 'center' }
                     ],
                     [
                         { text: `${ordens.tipo3}`, colSpan: 1, fontSize: 9, alignment: 'center' },
                         { text: `${ordens.descricao3}`, colSpan: 3, fontSize: 9, alignment: 'center' }, {}, {},
                         { text: `${ordens.quantidade3}`, colSpan: 1, fontSize: 9, alignment: 'center' },
                         { text: `${ordens.unidade_un3}`, colSpan: 1, fontSize: 9, alignment: 'center' },
-                        { text: `${ordens.valor_unit3.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}`, colSpan: 1, fontSize: 9, alignment: 'center' },
-                        { text: `${ordens.valor_total3.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}`, colSpan: 1, fontSize: 9, alignment: 'center' }
+                        { text: `${ordens.valor_unit3 ? ordens.valor_unit3.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' }) : ''}`, colSpan: 1, fontSize: 9, alignment: 'center' },
+                        { text: `${ordens.valor_total3 ? ordens.valor_total3.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' }) : ''}`, colSpan: 1, fontSize: 9, alignment: 'center' }
                     ],
                     [
                         { text: `${ordens.tipo4}`, colSpan: 1, fontSize: 9, alignment: 'center' },
                         { text: `${ordens.descricao4}`, colSpan: 3, fontSize: 9, alignment: 'center' }, {}, {},
                         { text: `${ordens.quantidade4}`, colSpan: 1, fontSize: 9, alignment: 'center' },
                         { text: `${ordens.unidade_un4}`, colSpan: 1, fontSize: 9, alignment: 'center' },
-                        { text: `${ordens.valor_unit4.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}`, colSpan: 1, fontSize: 9, alignment: 'center' },
-                        { text: `${ordens.valor_total4.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}`, colSpan: 1, fontSize: 9, alignment: 'center' }
+                        { text: `${ordens.valor_unit4 ? ordens.valor_unit4.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' }) : ''}`, colSpan: 1, fontSize: 9, alignment: 'center' },
+                        { text: `${ordens.valor_total4 ? ordens.valor_total4.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' }) : ''}`, colSpan: 1, fontSize: 9, alignment: 'center' }
                     ],
                     [
                         { text: ``, colSpan: 1, fontSize: 9, alignment: 'center' },
