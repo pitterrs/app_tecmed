@@ -75,7 +75,7 @@ const ModalCreateOS = ({ show, setCreate, getEOrdens }) => {
         }
 
         await axios
-            .post("http://localhost:8800/criarOrdem", {
+            .post("https://api-tecmed.vercel.app/criarOrdem", {
                 dataAbertura: dataAbertura,
                 unidade: unidade,
                 equipamento: equipamento,

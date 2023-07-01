@@ -13,7 +13,7 @@ const ConfirmDeleteOS = ({ confirm, setConfirm, onEdit, setOnEdit, getEOrdens })
 
     const deleteOS = async (e) => {
         await axios
-            .delete("http://localhost:8800/ordem/" + onEdit.id)
+            .delete("https://api-tecmed.vercel.app/ordem/" + onEdit.id)
             .then(({ data }) => {
                 toast.success(data);
             })

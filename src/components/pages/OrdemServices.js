@@ -39,28 +39,28 @@ function OrdemServices() {
     const getEOrdens = async () => {
         if (onFilter != 'null') {
             try {
-                const res = await axios.get(`http://localhost:8800/ordens/get/${onFilter[0].abertura}.${onFilter[0].unidade}.${onFilter[0].equipamento}.${onFilter[0].marca}.${onFilter[0].modelo}.${onFilter[0].setor}.${onFilter[0].patrimonio}.${onFilter[0].tecnico}.9999.0`);
+                const res = await axios.get(`https://api-tecmed.vercel.app/ordens/get/${onFilter[0].abertura}.${onFilter[0].unidade}.${onFilter[0].equipamento}.${onFilter[0].marca}.${onFilter[0].modelo}.${onFilter[0].setor}.${onFilter[0].patrimonio}.${onFilter[0].tecnico}.9999.0`);
                 setOrdensQuant(res.data);
             } catch (error) {
                 console.log(error);
             }
 
             try {
-                const res = await axios.get(`http://localhost:8800/ordens/get/${onFilter[0].abertura}.${onFilter[0].unidade}.${onFilter[0].equipamento}.${onFilter[0].marca}.${onFilter[0].modelo}.${onFilter[0].setor}.${onFilter[0].patrimonio}.${onFilter[0].tecnico}.${LIMIT}.${offset}`);
+                const res = await axios.get(`https://api-tecmed.vercel.app/ordens/get/${onFilter[0].abertura}.${onFilter[0].unidade}.${onFilter[0].equipamento}.${onFilter[0].marca}.${onFilter[0].modelo}.${onFilter[0].setor}.${onFilter[0].patrimonio}.${onFilter[0].tecnico}.${LIMIT}.${offset}`);
                 setOrdens(res.data);
             } catch (error) {
                 console.log(error);
             }
         } else {
             try {
-                const res = await axios.get(`http://localhost:8800/ordens`);
+                const res = await axios.get(`hhttps://api-tecmed.vercel.app/ordens`);
                 setOrdensQuant(res.data);
             } catch (error) {
                 console.log(error);
             }
 
             try {
-                const res = await axios.get(`http://localhost:8800/ordens/${LIMIT}/${offset}`);
+                const res = await axios.get(`https://api-tecmed.vercel.app/ordens/${LIMIT}/${offset}`);
                 setOrdens(res.data);
             } catch (error) {
                 console.log(error);
