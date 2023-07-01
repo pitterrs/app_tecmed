@@ -38,14 +38,14 @@ const Equipamentos = () => {
     const getEquips = async () => {
         if (onFilter != 'null') {
             try {
-                const res = await axios.get(`https://api-tecmed.vercel.app/equipamento/${onFilter[0].nome}.${onFilter[0].setor}.${onFilter[0].marca}.${onFilter[0].modelo}.${onFilter[0].patrimonio}.${onFilter[0].serie}.9999.0`);
+                const res = await axios.get(`https://api-tecmed.vercel.app/equipamentos/${onFilter[0].nome}.${onFilter[0].setor}.${onFilter[0].marca}.${onFilter[0].modelo}.${onFilter[0].patrimonio}.${onFilter[0].serie}.9999.0`);
                 setEquipsQuant(res.data.sort((a, b) => (a.nome > b.nome ? 1 : -1)));
             } catch (error) {
                 console.log(error);
             }
 
             try {
-                const res = await axios.get(`https://api-tecmed.vercel.app/equipamento/${onFilter[0].nome}.${onFilter[0].setor}.${onFilter[0].marca}.${onFilter[0].modelo}.${onFilter[0].patrimonio}.${onFilter[0].serie}.${LIMIT}.${offset}`);
+                const res = await axios.get(`https://api-tecmed.vercel.app/equipamentos/${onFilter[0].nome}.${onFilter[0].setor}.${onFilter[0].marca}.${onFilter[0].modelo}.${onFilter[0].patrimonio}.${onFilter[0].serie}.${LIMIT}.${offset}`);
                 setEquips(res.data);
             } catch (error) {
                 console.log(error);
