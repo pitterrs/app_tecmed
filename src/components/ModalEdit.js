@@ -36,7 +36,7 @@ const EditModal = ({ show, setShow, onEdit, setOnEdit, getEquips }) => {
         }
 
         await axios
-            .put("http://localhost:8800/" + onEdit.id, {
+            .put("https://api-tecmed.vercel.app/" + onEdit.id, {
                 nome: nome,
                 setor: setor,
                 marca: marca,

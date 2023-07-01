@@ -13,7 +13,7 @@ const ConfirmDeleteEQ = ({ confirm, setConfirm, onEdit, setOnEdit, getEquips }) 
 
     const deleteEQ = async (e) => {
         await axios
-            .delete("http://15.228.57.78:8800/" + onEdit.id)
+            .delete("https://api-tecmed.vercel.app/" + onEdit.id)
             .then(({ data }) => {
                 toast.success(data);
             })

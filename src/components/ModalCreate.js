@@ -34,7 +34,7 @@ const ModalCreate = ({ show, setCreate, getEquips }) => {
         }
 
         await axios
-            .post("http://15.228.57.78:8800", {
+            .post("https://api-tecmed.vercel.app/", {
                 nome: nome,
                 setor: setor,
                 marca: marca,
