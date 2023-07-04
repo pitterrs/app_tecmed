@@ -23,12 +23,14 @@ const EditModal = ({ show, setShow, onEdit, setOnEdit, getEOrdens }) => {
     const newdate = new Date(onEdit.data_abertura);
     let mes = (newdate.getMonth() + 1);
     let mes2 = '';
-    if(mes < 9){ mes2 = '0' + mes }else{mes2 = mes};
-    const novaAbertura = newdate.getFullYear() + '-' + mes2 + '-' + newdate.getDate();
+    if(mes < 10){ mes2 = '0' + mes }else{mes2 = mes};
+    const dia = (newdate.getDate() + 1) < 10 ? `0${(newdate.getDate() + 1)}` : (newdate.getDate() + 1);
+    const novaAbertura = newdate.getFullYear() + '-' + mes2 + '-' + dia;
     const newdate2 = new Date(onEdit.data_fechamento);
     mes = (newdate2.getMonth() + 1);
     if(mes < 9){ mes2 = '0' + mes }else{mes2 = mes};
-    const novoFechamento = newdate2.getFullYear() + '-' + mes2 + '-' + newdate2.getDate()
+    const dia2 = (newdate.getDate() + 1) < 10 ? `0${(newdate.getDate() + 1)}` : (newdate.getDate() + 1);
+    const novoFechamento = newdate2.getFullYear() + '-' + mes2 + '-' + dia2;
     const [dataAbertura, setAbertura] = useState(novaAbertura);
     const [unidade, setUnidade] = useState(onEdit.unidade);
     const [equipamento, setEquipamento] = useState(onEdit.equipamento);

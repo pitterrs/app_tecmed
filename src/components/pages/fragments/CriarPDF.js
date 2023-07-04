@@ -13,7 +13,7 @@ const criarPDF = (ordens) => {
 
     const replaceDate = (date) => {
         const newdate = new Date(date);
-        const dia = newdate.getDate() < 10 ? `0${newdate.getDate()}` : newdate.getDate();
+        const dia = (newdate.getDate() + 1) < 10 ? `0${(newdate.getDate() + 1)}` : (newdate.getDate() + 1);;
         const mes = (newdate.getMonth() + 1) < 10 ? `0${(newdate.getMonth() + 1)}` : (newdate.getMonth() + 1);
         const ano = newdate.getFullYear();
         const formatDate = dia + '/' + mes + '/' + ano;
@@ -23,65 +23,6 @@ const criarPDF = (ordens) => {
     };
 
     const pdfTitle = [
-        // {
-        //     columns: [
-        //         {
-        //             image: logo,
-        //             height: 250,
-        //             width: 250,
-        //         },
-        // {
-        //     columns: [
-        //         {
-        //             margin: [40, 5, 0, 0],
-        //             width: '35%',
-        //             text: 'Cel: (22) 9982000-70 - CFT: 04509068760 \n E-mail: robsonpaes.tec@hotmail.com',
-        //             fontSize: 9,
-        //             // colSpan: 2
-        //         },
-        //         {
-        //             width: '15%',
-        //             text: '',
-        //             fontSize: 9,
-        //         },
-        //         {
-        //             width: '25%',
-        //             text: ''
-        //         },
-        //         {
-        //             width: '25%',
-        //             text: 'value 4',
-        //             alignment: 'right'
-        //         },
-        //     ]
-        // },
-        // {
-        //     columns: [
-        //         {
-        //             margin: [40, 5, 0, 0],
-        //             width: '35%',
-        //             text: 'Cel: (22) 9982000-70 - CFT: 04509068760 \n E-mail: robsonpaes.tec@hotmail.com',
-        //             fontSize: 9,
-        //             // colSpan: 2
-        //         },
-        //         {
-        //             width: '15%',
-        //             text: '',
-        //             fontSize: 9,
-        //         },
-        //         {
-        //             width: '25%',
-        //             text: ''
-        //         },
-        //         {
-        //             width: '25%',
-        //             text: 'value 4',
-        //             alignment: 'right'
-        //         },
-        //     ]
-        // }
-        // ]
-        // }
     ];
 
     const content = [
@@ -90,7 +31,7 @@ const criarPDF = (ordens) => {
                 {
                     margin: [0, 0, 0, 0],
                     width: '35%',
-                    text: 'Cel: (22) 9982000-70 - CFT: 04509068760 \n E-mail: robsonpaes.tec@hotmail.com',
+                    text: 'Empresa: Tec.Med \n Cel: (22) 9982000-70 - CFT: 04509068760 \n E-mail: robsonpaes.tec@hotmail.com',
                     fontSize: 9,
                     // colSpan: 2
                 },
@@ -103,12 +44,12 @@ const criarPDF = (ordens) => {
                     // width: '20%',
                     // image: logo
                     image: logo,
-                    height: 60,
-                    width: 60,
+                    height: 70,
+                    width: 70,
                 },
                 {
                     width: '42%',
-                    text: 'Avenida Vicente de Carvalho, 1/42 \n Condomínio Jardim das Acácias',
+                    text: 'Avenida Vicente de Carvalho, 1/43 \n Campos dos Goytacazes - RJ',
                     fontSize: 9,
                     alignment: 'right'
                 },

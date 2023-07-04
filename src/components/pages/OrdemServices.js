@@ -124,7 +124,7 @@ function OrdemServices() {
 
     const replaceDate = (date) => {
         const newdate = new Date(date);
-        const dia = newdate.getDate() < 10 ? `0${newdate.getDate()}` : newdate.getDate();
+        const dia = (newdate.getDate() + 1) < 10 ? `0${(newdate.getDate() + 1)}` : (newdate.getDate() + 1);;
         const mes = (newdate.getMonth() + 1) < 10 ? `0${(newdate.getMonth() + 1)}` : (newdate.getMonth() + 1);
         const ano = newdate.getFullYear();
         const formatDate = dia + '/' + mes + '/' + ano;
