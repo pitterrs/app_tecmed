@@ -4,13 +4,14 @@ import Form from 'react-bootstrap/Form';
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Container from "react-bootstrap/esm/Container";
-import { FaTrash, FaEdit, FaSearch, FaPlus, FaFilePdf } from "react-icons/fa";
+import { FaTrash, FaEdit, FaSearch, FaPlus, FaFilePdf, FaCopy } from "react-icons/fa";
 import '../../Styles/Equipamentos.css'
 import Paginations from "./fragments/Pagination";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Button from 'react-bootstrap/Button';
 import EditModal from "../ModalEditOS";
+import ModalCopyOS from "../ModalCopyOS";
 import ConfirmDeleteOS from "../ConfirmDeleteOS";
 import ModalCreateOS from "../ModalCreateOS";
 import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
@@ -29,6 +30,7 @@ function OrdemServices() {
     const [busca, setBusca] = useState('');
     const [offset, setOffset] = useState(0)
     const [show, setShow] = useState(false);
+    const [copy, setCopy] = useState(false);
     const [confirm, setConfirm] = useState(false);
     const [create, setCreate] = useState(false);
     const [onEdit, setOnEdit] = useState(null);
@@ -97,7 +99,7 @@ function OrdemServices() {
         ordem.data_fechamento.toLowerCase().includes(lowerBusca))
         // ordem.recebido_por.toLowerCase().includes(lowerBusca) ||
         // ordem.matricula.toLowerCase().includes(lowerBusca))
-        : [] ;
+        : [];
 
     const handleEdit = (ordem) => {
         setOnEdit(ordem);
@@ -120,6 +122,11 @@ function OrdemServices() {
         //         toast.success(data);
         //     })
         //     .catch(({ data }) => toast.error(data));
+    };
+
+    const handleCopy = (ordem) => {
+        setOnEdit(ordem);
+        setCopy(true);
     };
 
     const replaceDate = (date) => {
@@ -215,7 +222,7 @@ function OrdemServices() {
                     {
                         equipamentoFiltrado.map((ordem, i) =>
                             <tr key={i}>
-                                <td><FaEdit className="icones" onClick={() => handleEdit(ordem)} /> <FaTrash className="icones" onClick={() => handleDelete(ordem)} /> <FaFilePdf className="icones" onClick={(e) => criarPDF(ordem)} /></td>
+                                <td><FaEdit className="icones" onClick={() => handleEdit(ordem)} /> <FaTrash className="icones" onClick={() => handleDelete(ordem)} /> <FaFilePdf className="icones" onClick={(e) => criarPDF(ordem)} /> <FaCopy className="icones" onClick={() => handleCopy(ordem)} /></td>
                                 <td>{ordem.id}</td>
                                 <td>{ordem.equipamento}</td>
                                 <td>{ordem.unidade}</td>
@@ -246,6 +253,9 @@ function OrdemServices() {
             )}
             {create && (
                 <ModalCreateOS show={create} setCreate={setCreate} getEOrdens={getEOrdens} />
+            )}
+            {copy && (
+                <ModalCopyOS copy={copy} setCopy={setCopy} onEdit={onEdit} setOnEdit={setOnEdit} getEOrdens={getEOrdens} />
             )}
             {confirm && (
                 <ConfirmDeleteOS confirm={confirm} setConfirm={setConfirm} onEdit={onEdit} setOnEdit={setOnEdit} getEOrdens={getEOrdens} />
