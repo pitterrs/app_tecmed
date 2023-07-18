@@ -6,8 +6,6 @@ import { Link, useHistory } from 'react-router-dom';
 import { useOktaAuth } from '@okta/okta-react';
 import '../Styles/Menu.css';
 import Button from 'react-bootstrap/Button';
-import Image from 'react-bootstrap/Image';
-import logo from '../images/logo.png';
 
 const NavMenu = () => {
 
