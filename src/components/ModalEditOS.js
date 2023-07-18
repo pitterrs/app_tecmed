@@ -541,7 +541,7 @@ const EditModal = ({ show, setShow, onEdit, setOnEdit, getEOrdens }) => {
                                     <Form.Label>Peças e Serviços:</Form.Label>
                                 </Form.Group>
 
-                                <Table>
+                                <Table responsive>
                                     <thead>
                                         <tr>
                                             <th>Tipo</th>
