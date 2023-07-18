@@ -55,7 +55,7 @@ const Home = () => {
                         </Card>
                     </Col>
                     : '' }
-                    <Col className="col-xxl-3 col-sm-6">
+                    <Col className="col-xxl-3 col-sm-6 margem-baixo">
                         <Card style={{ width: '18rem' }} className="zoom">
                             <Card.Body>
                                 <Card.Title className="nome-card">Ordens de Serviço</Card.Title>
@@ -67,7 +67,7 @@ const Home = () => {
                             <Card.Img variant="bottom" src="https://www.produttivo.com.br/blog/wp-content/uploads/2022/07/ordem-de-servico-1-1.jpg" />
                         </Card>
                     </Col>
-                    <Col className="col-xxl-3 col-sm-6">
+                    <Col className="col-xxl-3 col-sm-6 margem-baixo">
                         <Card style={{ width: '18rem' }} className="zoom">
                             <Card.Body>
                                 <Card.Title className="nome-card">Controle de Acessos</Card.Title>
