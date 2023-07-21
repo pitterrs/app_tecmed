@@ -45,11 +45,11 @@ const NavMenu = () => {
                         <Nav className="me-auto">
                             <Nav.Link><Link className="links" to="/">Início</Link></Nav.Link>
                             {
-                                userInfo && userInfo.name == 'Pitter Rezende da Silva' ? <Nav.Link><Link className="links" to="/Equipamentos">Equipamentos</Link></Nav.Link> : ''
+                                userInfo && userInfo.name == 'José Robson Machado Paes' ? <Nav.Link><Link className="links" to="/Equipamentos">Equipamentos</Link></Nav.Link> : ''
                             }
                             <Nav.Link><Link className="links" to="/OrdemServices">Ordens de Serviço</Link></Nav.Link>
                             {
-                                userInfo && userInfo.name == 'Pitter Rezende da Silva' ? <Nav.Link><Link className="links" to="/ControlAccess">Controle de Acesso</Link></Nav.Link> : ''
+                                userInfo && userInfo.name == 'José Robson Machado Paes' ? <Nav.Link><Link className="links" to="/ControlAccess">Controle de Acesso</Link></Nav.Link> : ''
                             }
                             
                         </Nav>

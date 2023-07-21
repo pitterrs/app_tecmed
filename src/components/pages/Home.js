@@ -41,7 +41,7 @@ const Home = () => {
         <div>
             <Container className="home-padding">
                 <Row>
-                    { userInfo && userInfo.name == 'Pitter Rezende da Silva' ?
+                    { userInfo && userInfo.name == 'José Robson Machado Paes' ?
                     <Col className="col-xxl-3 col-sm-6 margem-baixo">
                         <Card style={{ width: '18rem' }} className="zoom">
                             <Card.Body>
