@@ -39,7 +39,7 @@ const NavMenu = () => {
         <div>
             <Navbar bg="primary" variant="dark" expand="lg">
                 <Container>
-                    <Navbar.Brand href="http://localhost:3000/"><img src="logo2.png" style={{ width: '60px', }}/></Navbar.Brand>
+                    <Navbar.Brand href="https://tecmedcampos.com.br"><img src="logo2.png" style={{ width: '60px', }}/></Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
