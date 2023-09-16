@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form';
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Container from "react-bootstrap/esm/Container";
-import { FaTrash, FaEdit, FaSearch, FaPlus } from "react-icons/fa";
+import { FaTrash, FaEdit, FaSearch, FaPlus, FaGlasses } from "react-icons/fa";
 import '../../Styles/Equipamentos.css'
 import Paginations from "./fragments/Pagination";
 import { toast, ToastContainer } from "react-toastify";
@@ -18,6 +18,7 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import Filtros from "../FiltrosEquips";
 import { useOktaAuth } from '@okta/okta-react';
 import ConfirmDeleteEQ from "../ConfirmDeleteEQ";
+import ViewEquipamento from "../viewequipamento";
 
 const LIMIT = 15;
 
@@ -32,6 +33,7 @@ const Equipamentos = () => {
     const [offset, setOffset] = useState(0)
     const [show, setShow] = useState(false);
     const [create, setCreate] = useState(false);
+    const [view, setView] = useState(false);
     const [onEdit, setOnEdit] = useState(null);
     const [onFilter, setOnFilter] = useState('null');
 
@@ -84,6 +86,11 @@ const Equipamentos = () => {
 
     const handleCreate = () => {
         setCreate(true);
+    };
+
+    const handleView = (equip) => {
+        setOnEdit(equip);
+        setView(true);
     };
 
     const handleDelete = (equip) => {
@@ -159,7 +166,7 @@ const Equipamentos = () => {
                                 <td>{equip.modelo}</td>
                                 <td>{equip.patrimonio}</td>
                                 <td>{equip.serie}</td>
-                                <td><FaEdit className="icones" onClick={() => handleEdit(equip)} /> <FaTrash className="icones" onClick={() => handleDelete(equip)} /></td>
+                                <td><FaEdit className="icones" onClick={() => handleEdit(equip)} /> <FaTrash className="icones" onClick={() => handleDelete(equip)} /> <FaGlasses className="icones" onClick={() => handleView(equip)} /> </td>
                             </tr>
                         )
                     }
@@ -170,6 +177,9 @@ const Equipamentos = () => {
             )}
             {show && (
                 <EditModal show={show} setShow={setShow} onEdit={onEdit} setOnEdit={setOnEdit} getEquips={getEquips} />
+            )}
+            {view && (
+                <ViewEquipamento show={view} setView={setView} onEdit={onEdit} setOnEdit={setOnEdit} />
             )}
             {confirm && (
                 <ConfirmDeleteEQ confirm={confirm} setConfirm={setConfirm} onEdit={onEdit} setOnEdit={setOnEdit} getEquips={getEquips} />

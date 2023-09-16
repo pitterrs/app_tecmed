@@ -1,4 +1,4 @@
-import { React, useState } from 'react';
+import { React, useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
@@ -8,6 +8,7 @@ import { toast } from "react-toastify";
 import axios from "axios";
 import '../Styles/ModalOS.css';
 import Table from 'react-bootstrap/Table';
+import Select from 'react-select';
 
 const ModalCreateOS = ({ show, setCreate, getEOrdens }) => {
 
@@ -61,6 +62,15 @@ const ModalCreateOS = ({ show, setCreate, getEOrdens }) => {
     const [situacao, setSituacao] = useState("");
     const [recebido, setRecebido] = useState("");
     const [matricula, setMatricula] = useState("");
+
+    const [ListaEquipamento, setListaEquipamento] = useState([]);
+    const [ListMarca, setListaMarca] = useState([]);
+    const [ListaModelo, setListaModelo] = useState([]);
+    const [isClearable, setIsClearable] = useState(true);
+    const [isSearchable, setIsSearchable] = useState(true);
+    const [isDisabled, setIsDisabled] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+    const [isRtl, setIsRtl] = useState(false);
 
     const handleClose = () => {
         setCreate(false);
@@ -205,6 +215,41 @@ const ModalCreateOS = ({ show, setCreate, getEOrdens }) => {
 
     }
 
+    const handleChangeEquipamento = (e) => {
+        if (!e) {
+            setEquipamento('');
+            setMarca('');
+            setModelo('');
+        } else {
+            setEquipamento(e.nome);
+            setMarca(e.marca);
+            setModelo(e.modelo);
+        }
+    };
+
+    const getFields = async () => {
+        await axios.get(`https://api-tecmed.vercel.app/listaequipamentos`)
+        .then((data) => {
+            setListaEquipamento(changeData(data.data))
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+    }
+
+    const changeData = (data) => {
+        for (var linha of data) {
+            Object.defineProperty(linha, 'label', {
+                value: linha.nome,
+            })
+        }
+        return ( data )
+    };
+
+    useEffect(() => {
+        getFields();
+    }, []);
+
     return (
         <div>
             <Modal size="xl" show={show} onHide={handleClose}>
@@ -227,7 +272,24 @@ const ModalCreateOS = ({ show, setCreate, getEOrdens }) => {
 
                                 <Form.Group as={Col} controlId="formGridMarca">
                                     <Form.Label>Equipamento</Form.Label>
+                                    {ListaEquipamento.length > 0 ?
+                                    <Select
+                                                className="basic-single"
+                                                classNamePrefix="select"
+                                                isDisabled={isDisabled}
+                                                isLoading={isLoading}
+                                                isClearable={isClearable}
+                                                isRtl={isRtl}
+                                                isSearchable={isSearchable}
+                                                defaultValue=''
+                                                name="name"
+                                                options={ListaEquipamento}
+                                                onChange={handleChangeEquipamento}
+
+                                            />
+                                    :
                                     <Form.Control size="sm" value={equipamento} onChange={(e) => setEquipamento(e.target.value)} />
+                                    }
                                 </Form.Group>
                             </Row>
 

@@ -16,6 +16,7 @@ const EditModal = ({ show, setShow, onEdit, setOnEdit, getEquips }) => {
     const [modelo, setModelo] = useState(onEdit.modelo || "");
     const [patrimonio, setPatrimonio] = useState(onEdit.patrimonio || "");
     const [serie, setSerie] = useState(onEdit.serie || "");
+    const [observacoes, setObservacoes] = useState(onEdit.observacoes || "");
 
     const handleClose = () => {
         setShow(false);
@@ -43,6 +44,7 @@ const EditModal = ({ show, setShow, onEdit, setOnEdit, getEquips }) => {
                 modelo: modelo,
                 patrimonio: patrimonio,
                 serie: serie,
+                observacoes
             })
             .then(({ data }) => toast.success(data))
             .catch(({ data }) => toast.error(data));
@@ -93,6 +95,14 @@ const EditModal = ({ show, setShow, onEdit, setOnEdit, getEquips }) => {
                                 <Form.Group as={Col}>
                                     <Form.Label>Nº Série</Form.Label>
                                     <Form.Control value={serie} onChange={(e) => setSerie(e.target.value)} />
+                                </Form.Group>
+                            </Col>
+                        </Row>
+                        <Row className="mb-3">
+                            <Col xs={5}>
+                                <Form.Group as={Col}>
+                                    <Form.Label>Observações:</Form.Label>
+                                    <Form.Control maxLength={255} as="textarea" value={observacoes} onChange={(e) => setObservacoes(e.target.value)} />
                                 </Form.Group>
                             </Col>
                         </Row>

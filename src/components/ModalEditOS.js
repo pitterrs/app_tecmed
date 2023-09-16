@@ -8,7 +8,6 @@ import { toast } from "react-toastify";
 import axios from "axios";
 import Table from 'react-bootstrap/Table';
 
-
 let dolarnew = '';
 let dolarnew2 = '';
 let dolarnew3 = '';
